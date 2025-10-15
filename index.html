@@ -83,14 +83,73 @@
             outline-offset: 2px;
         }
 
-        /* Hero Section */
+        /* NEW: Hero Container for Split Screen */
+        .hero-container {
+            display: flex;
+            flex-direction: column; /* Default stack on mobile */
+        }
+        
+        /* Hero Section - The Text and CTAs */
         .hero {
             background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
             color: #ffffff;
-            padding: 4rem 2rem 2rem 2rem;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        /* Image Banner for the family photo - SCALED DOWN */
+        .image-banner {
+            background: #f8f9fa;
+            padding: 0;
             text-align: center;
         }
 
+        .image-banner img {
+            width: 100%;
+            height: auto;
+            max-height: 400px; /* Reduced max-height for better scaling */
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        
+        /* Split Screen Styles for Desktop */
+        @media (min-width: 900px) {
+            .hero-container {
+                flex-direction: row; /* Side-by-side on large screens */
+                height: 500px; /* Set a fixed height for the whole banner area */
+            }
+
+            .hero {
+                width: 50%;
+                padding: 4rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .hero-content {
+                max-width: 100%; /* Use full width of the 50% container */
+            }
+            
+            .hero h1, .hero p {
+                text-align: left;
+            }
+
+            .image-banner {
+                width: 50%;
+                height: 500px; /* Match the height of the hero section */
+            }
+
+            .image-banner img {
+                height: 100%; /* Fill the 500px container */
+                max-height: 100%;
+            }
+        }
+
+        /* General Hero Content Styling */
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
@@ -132,7 +191,8 @@
         }
 
         .btn:focus {
-            outline: 3px solid #ffffff;
+            /* Ensure clear focus visibility for all standard buttons */
+            outline: 3px solid #ffd700; 
             outline-offset: 2px;
         }
 
@@ -145,20 +205,6 @@
             background: transparent;
             color: #ffffff;
             border: 2px solid #ffffff;
-        }
-
-        /* Image Banner for the family photo */
-        .image-banner {
-            background: #f8f9fa;
-            padding: 0;
-            text-align: center;
-        }
-        .image-banner img {
-            width: 100%;
-            max-height: 600px;
-            object-fit: cover;
-            object-position: center top;
-            display: block;
         }
         
         /* Sections */
@@ -283,7 +329,7 @@
             text-align: left;
         }
 
-        /* GET INVOLVED CARDS STYLING (UPDATED) */
+        /* GET INVOLVED CARDS STYLING */
         .involved-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -327,6 +373,12 @@
             text-align: center;
             margin-top: auto;
         }
+
+        .involved-card .btn-full:focus {
+            /* Override for full width buttons to ensure visibility */
+            outline: 3px solid #ff0000; /* Use a high-contrast color for visibility */
+            outline-offset: 3px;
+        }
         
         /* Responsive */
         @media (max-width: 768px) {
@@ -352,6 +404,18 @@
             }
             .about-text h3 {
                 text-align: center;
+            }
+            /* Stack Hero on Mobile */
+            .hero-container {
+                flex-direction: column;
+            }
+            /* Set Hero Text to display first on mobile */
+            .hero {
+                order: 1; 
+            }
+            /* Set Banner Image to display second on mobile */
+            .image-banner {
+                order: 2;
             }
         }
         
@@ -395,19 +459,21 @@
     </nav>
 
     <main id="main" role="main">
-        <section class="hero" aria-labelledby="hero-heading">
-            <div class="hero-content">
-                <h1 id="hero-heading">Leadership That Listens</h1>
-                <p>I've spent my career building systems that work for everyone by listening to diverse voices and using data to guide decisions. It's time we brought that approach to the Missouri House.</p>
-                <div class="cta-buttons">
-                    <a href="#involved" class="btn btn-primary">Volunteer</a>
-                    <a href="#involved" class="btn btn-secondary">Donate Today</a>
+        <section class="hero-container">
+            <div class="hero" aria-labelledby="hero-heading">
+                <div class="hero-content">
+                    <h1 id="hero-heading">Leadership That Listens</h1>
+                    <p>I've spent my career building systems that work for everyone by listening to diverse voices and using data to guide decisions. It's time we brought that approach to the Missouri House.</p>
+                    <div class="cta-buttons">
+                        <a href="#involved" class="btn btn-primary">Volunteer</a>
+                        <a href="#involved" class="btn btn-secondary">Donate Today</a>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="image-banner" aria-label="Photo of Matt Vitale and his family">
-            <img src="images/472360268_18481020163061033_5501905840714018864_n.jpg" alt="Matt Vitale, his spouse, and their two young children sitting in the grass near a park fountain.">
+            
+            <div class="image-banner" aria-label="Photo of Matt Vitale and his family">
+                <img src="images/472360268_18481020163061033_5501905840714018864_n.jpg" alt="Matt Vitale, his spouse, and their two young children sitting in the grass near a park fountain.">
+            </div>
         </section>
 
         <section class="priorities-section" id="priorities" aria-labelledby="priorities-heading">
@@ -416,7 +482,7 @@
                 <p class="section-subtitle">Representation rooted in listening, data, and designing systems that include every Missourian.</p>
 
                 <div class="approach-grid">
-                    <div class="approach-card" tabindex="0">
+                    <div class="approach-card">
                         <h3>Defend Reproductive Rights</h3>
                         <p>I will protect the will of the voters. Healthcare decisions belong to women and doctors, not politicians.</p>
                         <ul>
@@ -425,7 +491,7 @@
                         </ul>
                     </div>
 
-                    <div class="approach-card" tabindex="0">
+                    <div class="approach-card">
                         <h3>Protect Our Public Schools</h3>
                         <p>We must fully fund our schools and protect our local control. We chose Lindbergh because our child is guaranteed stable, comprehensive support.</p>
                         <ul>
@@ -435,7 +501,7 @@
                         </ul>
                     </div>
 
-                    <div class="approach-card" tabindex="0">
+                    <div class="approach-card">
                         <h3>Support Working Families</h3>
                         <p>I will defend paid sick leave and fight for policies that recognize the value and dignity of every worker in our district.</p>
                         <ul>
@@ -444,7 +510,7 @@
                         </ul>
                     </div>
 
-                    <div class="approach-card" tabindex="0">
+                    <div class="approach-card">
                         <h3>Defend Local Control</h3>
                         <p>I will oppose any attempt to silence the clear voice of HD-96 voters.</p>
                         <ul>
@@ -453,7 +519,7 @@
                         </ul>
                     </div>
 
-                    <div class="approach-card" tabindex="0">
+                    <div class="approach-card">
                         <h3>Funding Public Safety</h3>
                         <p>Safety requires investment in enforcement, tough sentences for violent crime, and effective mental health resources.</p>
                         <ul>
@@ -462,7 +528,7 @@
                         </ul>
                     </div>
 
-                    <div class="approach-card" tabindex="0">
+                    <div class="approach-card">
                         <h3>Infrastructure Investment</h3>
                         <p>I will fight to bring our fair share of state dollars back home for roads, bridges, and essential services.</p>
                         <ul>
