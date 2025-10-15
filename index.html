@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt for HD-96 | Responsive Leadership for Missouri House District 96</title>
+    <meta name="description" content="Matt for HD-96: Leadership that listens. Vote for responsive representation on education, healthcare, workers' rights, and public safety.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Skip to main content link (WCAG 2.4.1) */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #0066cc;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Navigation - NO LONGER STICKY */
+        nav {
+            background: #ffffff;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            /* position: sticky; IS REMOVED */
+            top: 0;
+            z-index: 100;
+        }
+        
+        /* Campaign Logo/Title */
+        nav .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0066cc;
+        }
+        
+        .logo img {
+            height: 40px; /* Logo size */
+            width: auto;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            color: #0066cc;
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+            color: #ffffff;
+            padding: 4rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 0.4rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            min-height: 44px;
+            line-height: 1.5;
+        }
+
+        .btn:focus {
+            outline: 3px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #0066cc;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        /* Image Banner for the family photo */
+        .image-banner {
+            background: #f8f9fa;
+            padding: 0;
+            text-align: center;
+        }
+        .image-banner img {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+        
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            scroll-margin-top: 100px;
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #555555;
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* My Priorities Section (Approach Grid) */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .approach-card {
+            border: 2px solid #e0e0e0;
+            padding: 2rem;
+            border-radius: 0.6rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* The Record Section (Contrast Grid) */
+        .record-section {
+            background: #f8f9fa;
+        }
+
+        .record-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .record-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 0.6rem;
+            border-left: 6px solid #cc0000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .record-card .vote-you {
+            background: #e8f0ff; 
+            padding: 0.75rem;
+            margin: 0.75rem 0;
+            border-left: 3px solid #0066cc;
+            font-size: 0.9rem;
+            border-radius: 0.3rem;
+        }
+
+        .record-card .vote-christ {
+            background: #ffe8e8;
+            padding: 0.75rem;
+            margin: 0.75rem 0;
+            border-left: 3px solid #cc0000;
+            font-size: 0.9rem;
+            border-radius: 0.3rem;
+        }
+
+        .record-card .result {
+            color: #cc0000;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #ffffff;
+        }
+        
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .about-photo-wrapper {
+            text-align: center;
+        }
+
+        .about-photo-wrapper img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 50%;
+            border: 5px solid #0066cc;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            color: #0066cc;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            nav .logo {
+                margin-bottom: 0.5rem;
+            }
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            .about-content-grid {
+                grid-template-columns: 1fr;
+            }
+            .about-photo-wrapper {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+            .about-text h3 {
+                text-align: center;
+            }
+        }
+        
+        /* CTA Footer */
+        .cta-footer {
+            background: linear-gradient(135deg, #0066cc 0%, #004a99 100%);
+            color: #ffffff;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .cta-footer h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .cta-footer p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation">
+        <div class="logo">
+            <img src="Gemini_Generated_Image_6codgd6codgd6cod.jpg" alt="Matt Vitale for State Representative HD 96 Logo">
+        </div>
+        <ul>
+            <li><a href="#priorities">My Priorities</a></li>
+            <li><a href="#record">Why Change Matters</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#involved">Get Involved</a></li>
+        </ul>
+    </nav>
+
+    <main id="main" role="main">
+        <section class="hero" aria-labelledby="hero-heading">
+            <div class="hero-content">
+                <h1 id="hero-heading">Leadership That Listens</h1>
+                <p>I've spent my career building systems that work for everyone by listening to diverse voices and using data to guide decisions. It's time we brought that approach to the Missouri House.</p>
+                <div class="cta-buttons">
+                    <a href="#involved" class="btn btn-primary">Volunteer</a>
+                    <a href="#involved" class="btn btn-secondary">Donate Today</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="image-banner" aria-label="Photo of Matt Vitale and his family">
+            <img src="472360268_18481020163061033_5501905840714018864_n.jpg" alt="Matt Vitale, his spouse, and their two young children sitting in the grass near a park fountain.">
+        </section>
+
+        <section class="priorities-section" id="priorities" aria-labelledby="priorities-heading">
+            <div class="section-container">
+                <h2 id="priorities-heading" class="section-title">My Priorities: Representation Rooted in Listening</h2>
+                <p class="section-subtitle">Representation rooted in listening, data, and designing systems that include every Missourian.</p>
+
+                <div class="approach-grid">
+                    <div class="approach-card" tabindex="0">
+                        <h3>Defend Reproductive Rights</h3>
+                        <p>I will protect the will of the voters. Healthcare decisions belong to women and doctors, not politicians.</p>
+                        <ul>
+                            <li>Protect and expand access to reproductive healthcare.</li>
+                            <li>Expand access to affordable health coverage.</li>
+                        </ul>
+                    </div>
+
+                    <div class="approach-card" tabindex="0">
+                        <h3>Protect Our Public Schools</h3>
+                        <p>We must fully fund our schools and protect our local control. We chose Lindbergh because our child is guaranteed stable, comprehensive support.</p>
+                        <ul>
+                            <li>Block effort to force charters into St. Louis County.</li>
+                            <li>Fully fund special education and IEP services.</li>
+                            <li>Stop all legislative attempts to divert public funds to private vouchers.</li>
+                        </ul>
+                    </div>
+
+                    <div class="approach-card" tabindex="0">
+                        <h3>Support Working Families</h3>
+                        <p>I will defend paid sick leave and fight for policies that recognize the value and dignity of every worker in our district.</p>
+                        <ul>
+                            <li>Defend the Paid Sick Leave mandate.</li>
+                            <li>Support affordable childcare and family tax relief.</li>
+                        </ul>
+                    </div>
+
+                    <div class="approach-card" tabindex="0">
+                        <h3>Defend Local Control</h3>
+                        <p>I will oppose any attempt to silence the clear voice of HD-96 voters.</p>
+                        <ul>
+                            <li>Protect the ballot initiative process.</li>
+                            <li>Oppose partisan gerrymandering and voter suppression efforts.</li>
+                        </ul>
+                    </div>
+
+                    <div class="approach-card" tabindex="0">
+                        <h3>Funding Public Safety</h3>
+                        <p>Safety requires investment in enforcement, tough sentences for violent crime, and effective mental health resources.</p>
+                        <ul>
+                            <li>Support law enforcement.</li>
+                            <li>Invest in drug treatment and diversion courts.</li>
+                        </ul>
+                    </div>
+
+                    <div class="approach-card" tabindex="0">
+                        <h3>Infrastructure Investment</h3>
+                        <p>I will fight to bring our fair share of state dollars back home for roads, bridges, and essential services.</p>
+                        <ul>
+                            <li>Prioritize repair of aging local infrastructure.</li>
+                            <li>Protect our tax dollars from wealthy special interest handouts.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="record-section" id="record" aria-labelledby="record-heading">
+            <div class="section-container">
+                <h2 id="record-heading" class="section-title">The Contrast: My Opponent's Record</h2>
+                <p class="section-subtitle">Brad Christ votes against your mandate and wants to silence your vote forever. That's not representation.</p>
+
+                <div class="record-grid">
+                    <div class="record-card">
+                        <h4>Attack on Reproductive Freedom</h4>
+                        <div class="vote-you"><strong>Your Will:</strong> You voted for reproductive freedom.</div>
+                        <div class="vote-christ"><strong>Brad's Vote:</strong> He voted to take it away.</div>
+                        <div class="result"><strong>The Result:</strong> Attack on your healthcare decisions.</div>
+                    </div>
+
+                    <div class="record-card">
+                        <h4>Repealing Paid Sick Leave</h4>
+                        <div class="vote-you"><strong>Your Need:</strong> Protection for sick workers and children.</div>
+                        <div class="vote-christ"><strong>Brad's Vote:</strong> He voted to repeal the Paid Sick Leave mandate.</div>
+                        <div class="result"><strong>The Result:</strong> He thinks you should go to work anyway when your kid is sick.</div>
+                    </div>
+
+                    <div class="record-card">
+                        <h4>Make Initiative Petitions Impossible</h4>
+                        <div class="vote-you"><strong>Your Voice:</strong> You want to protect the ballot initiative process.</div>
+                        <div class="vote-christ"><strong>Brad's Vote:</strong> He voted to make initiative petitions impossible.</div>
+                        <div class="result"><strong>The Result:</strong> If he can't win your vote, he'll just take away your voice.</div>
+                    </div>
+
+                    <div class="record-card">
+                        <h4>Divert Millions From Public Education</h4>
+                        <div class="vote-you"><strong>Your Priority:</strong> Our school district is our greatest strength.</div>
+                        <div class="vote-christ"><strong>Brad's Plan:</strong> He wants to expand charter schools.</div>
+                        <div class="result"><strong>The Result:</strong> Diverting millions from the public education system you support.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" id="about" aria-labelledby="about-heading">
+            <div class="section-container">
+                <h2 id="about-heading" class="section-title">Why I Am Running</h2>
+
+                <div class="about-content-grid">
+                    <div class="about-photo-wrapper">
+                         <img src="314027476_10222997178420314_2561865880457143289_n.jpg" alt="Matt Vitale and his spouse, Becca, standing together in an autumn park.">
+                    </div>
+                    <div class="about-text">
+                        <p style="font-size: 1.1rem; font-weight: 600; line-height: 1.6;">
+                            Becca and I demand a better Missouri that truly works for and represents us. Our values are the values of this district, and this campaign is about ensuring we have a representative who listens.
+                        </p>
+
+                        <h3>My Personal Stake in Public Education</h3>
+                        <p>My commitment to supporting public education is deeply personal. We chose the Lindbergh School District because our child, who receives special education services under an IEP, is guaranteed the stable, comprehensive support they need. We know that stability matters for every family.</p>
+
+                        <h3>Principles of Leadership</h3>
+                        <p>For over a decade, my professional work has focused on building digital platforms that work for everyone, including people with disabilities.</p>
+                        <p>This work taught me two essential principles of effective leadership that I will bring to Jefferson City:</p>
+
+                        <p><strong>1. Intentionally Inclusive:</strong> We must listen to diverse voices. When you exclude people from decisions that affect them, you build systems that exclude them from participating.</p>
+                        <p><strong>2. Data-Driven, Not Ideological:</strong> Good governance is about finding what actually works for real people, respecting both the data and the voices that inform it.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 3rem; font-weight: 600; text-align: center; color: #0066cc;">I will bring these principles to Jefferson City to ensure our district is truly heard.</p>
+            </div>
+        </section>
+
+        <section class="involved-section" id="involved" aria-labelledby="involved-heading">
+            <div class="section-container">
+                <h2 id="involved-heading" class="section-title">Help Us Build Something Better</h2>
+
+                <div class="involved-grid">
+                    <div class="involved-card">
+                        <h3>Volunteer</h3>
+                        <p>We're looking for people to knock on doors, make phone calls, and share on social media.</p>
+                        <p style="margin-top: 1rem;"><a href="#" class="btn btn-primary" style="display: block; text-align: center; width: 100%;">Sign Up to Volunteer</a></p>
+                    </div>
+
+                    <div class="involved-card">
+                        <h3>Donate</h3>
+                        <p>Every dollar helps us reach more voters. Your support is critical to competing in this race.</p>
+                        <p style="margin-top: 1rem; font-weight: 600;">Your support makes a difference.</p>
+                        <p style="margin-top: 1rem;"><a href="#" class="btn btn-primary" style="display: block; text-align: center; width: 100%;">Make a Donation</a></p>
+                    </div>
+
+                    <div class="involved-card">
+                        <h3>Share Your Story</h3>
+                        <p>What matters most to you? Share your personal stake in reproductive freedom, education, or workers' rights.</p>
+                        <p style="margin-top: 1rem;"><a href="#" class="btn btn-primary" style="display: block; text-align: center; width: 100%;">Submit Your Story</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-footer" aria-labelledby="cta-heading">
+            <h2 id="cta-heading">HD-96 Deserves a Representative Who Listens</h2>
+            <p>Your needs come before party politics. Your voice comes before my ambitions. Your families come before ideology. I will answer to you, not party leadership. District first, always.</p>
+            <div class="cta-buttons">
+                <a href="#involved" class="btn btn-primary">Join Us</a>
+                <a href="#about" class="btn btn-secondary">Learn More About Me</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
