@@ -97,7 +97,7 @@
             text-align: center;
         }
         
-        /* Image Banner for the family photo - SCALED DOWN */
+        /* Image Banner for the family photo - SCALED DOWN & POSITIONED */
         .image-banner {
             background: #f8f9fa;
             padding: 0;
@@ -107,9 +107,9 @@
         .image-banner img {
             width: 100%;
             height: auto;
-            max-height: 400px; /* Reduced max-height for better scaling */
+            max-height: 400px; 
             object-fit: cover;
-            object-position: center top;
+            object-position: center; /* FIX: Center the image (prioritizes faces) */
             display: block;
         }
         
@@ -117,11 +117,12 @@
         @media (min-width: 900px) {
             .hero-container {
                 flex-direction: row; /* Side-by-side on large screens */
-                height: 500px; /* Set a fixed height for the whole banner area */
+                height: 600px; /* Set a consistent height for the split */
             }
 
             .hero {
                 width: 50%;
+                height: 100%; /* Take full height of the container */
                 padding: 4rem;
                 display: flex;
                 flex-direction: column;
@@ -140,11 +141,11 @@
 
             .image-banner {
                 width: 50%;
-                height: 500px; /* Match the height of the hero section */
+                height: 100%; /* Take full height of the container */
             }
 
             .image-banner img {
-                height: 100%; /* Fill the 500px container */
+                height: 100%; /* Fill the 600px container */
                 max-height: 100%;
             }
         }
@@ -242,13 +243,63 @@
             margin-top: 2rem;
         }
 
+        /* NEW STYLING FOR APPROACH CARDS */
         .approach-card {
-            border: 2px solid #e0e0e0;
+            border: 1px solid #e0e0e0;
             padding: 2rem;
             border-radius: 0.6rem;
             transition: all 0.3s ease;
+            border-bottom: 5px solid #0066cc; /* Blue bottom accent */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .approach-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-color: #0066cc; /* Highlight border on hover */
         }
         
+        .approach-card h3 {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            color: #004a99;
+            margin-bottom: 1rem;
+        }
+        
+        .approach-card .icon {
+            font-size: 1.8rem;
+            color: #cc0000; /* Red for emphasis */
+            margin-right: 0.8rem;
+            line-height: 1;
+        }
+
+        .approach-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+            border-top: 1px dashed #e0e0e0;
+            padding-top: 1rem;
+        }
+        
+        .approach-card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #555;
+        }
+        
+        .approach-card ul li::before {
+            content: '✓';
+            color: #0066cc;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        /* END NEW STYLING FOR APPROACH CARDS */
+
+
         /* The Record Section (Contrast Grid) */
         .record-section {
             background: #f8f9fa;
@@ -267,6 +318,18 @@
             border-radius: 0.6rem;
             border-left: 6px solid #cc0000;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Fix for the single card in the last row */
+        @media (min-width: 900px) and (max-width: 1000px) {
+            .record-grid .record-card:nth-child(4) {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        .record-grid .record-card:nth-child(4) {
+            text-align: center;
         }
         
         .record-card .vote-you {
@@ -448,7 +511,7 @@
 
     <nav role="navigation">
         <div class="logo">
-            <img src="images/Gemini_Generated_Image_6codgd6codgd6cod.jpg" alt="Matt Vitale for State Representative HD 96 Logo">
+            <img src="images/gemini_generated_image_6codgd6codgd6cod.jpg" alt="Matt Vitale for State Representative HD 96 Logo">
         </div>
         <ul>
             <li><a href="#priorities">My Priorities</a></li>
@@ -483,7 +546,7 @@
 
                 <div class="approach-grid">
                     <div class="approach-card">
-                        <h3>Defend Reproductive Rights</h3>
+                        <h3><span class="icon">♀️</span> Defend Reproductive Rights</h3>
                         <p>I will protect the will of the voters. Healthcare decisions belong to women and doctors, not politicians.</p>
                         <ul>
                             <li>Protect and expand access to reproductive healthcare.</li>
@@ -492,7 +555,7 @@
                     </div>
 
                     <div class="approach-card">
-                        <h3>Protect Our Public Schools</h3>
+                        <h3><span class="icon">🏫</span> Protect Our Public Schools</h3>
                         <p>We must fully fund our schools and protect our local control. We chose Lindbergh because our child is guaranteed stable, comprehensive support.</p>
                         <ul>
                             <li>Block effort to force charters into St. Louis County.</li>
@@ -502,7 +565,7 @@
                     </div>
 
                     <div class="approach-card">
-                        <h3>Support Working Families</h3>
+                        <h3><span class="icon">🛠️</span> Support Working Families</h3>
                         <p>I will defend paid sick leave and fight for policies that recognize the value and dignity of every worker in our district.</p>
                         <ul>
                             <li>Defend the Paid Sick Leave mandate.</li>
@@ -511,7 +574,7 @@
                     </div>
 
                     <div class="approach-card">
-                        <h3>Defend Local Control</h3>
+                        <h3><span class="icon">🗳️</span> Defend Local Control</h3>
                         <p>I will oppose any attempt to silence the clear voice of HD-96 voters.</p>
                         <ul>
                             <li>Protect the ballot initiative process.</li>
@@ -520,7 +583,7 @@
                     </div>
 
                     <div class="approach-card">
-                        <h3>Funding Public Safety</h3>
+                        <h3><span class="icon">🚨</span> Funding Public Safety</h3>
                         <p>Safety requires investment in enforcement, tough sentences for violent crime, and effective mental health resources.</p>
                         <ul>
                             <li>Support law enforcement.</li>
@@ -529,7 +592,7 @@
                     </div>
 
                     <div class="approach-card">
-                        <h3>Infrastructure Investment</h3>
+                        <h3><span class="icon">🌉</span> Infrastructure Investment</h3>
                         <p>I will fight to bring our fair share of state dollars back home for roads, bridges, and essential services.</p>
                         <ul>
                             <li>Prioritize repair of aging local infrastructure.</li>
@@ -567,7 +630,7 @@
                         <div class="result"><strong>The Result:</strong> If he can't win your vote, he'll just take away your voice.</div>
                     </div>
 
-                    <div class="record-card">
+                    <div class="record-card" style="text-align: center;"> 
                         <h4>Divert Millions From Public Education</h4>
                         <div class="vote-you"><strong>Your Priority:</strong> Our school district is our greatest strength.</div>
                         <div class="vote-christ"><strong>Brad's Plan:</strong> He wants to expand charter schools.</div>
