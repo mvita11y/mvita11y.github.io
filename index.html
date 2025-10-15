@@ -35,7 +35,7 @@
             top: 0;
         }
 
-        /* Navigation - NO LONGER STICKY */
+        /* Navigation - NON-STICKY */
         nav {
             background: #ffffff;
             padding: 0.5rem 2rem;
@@ -43,7 +43,6 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            /* position: sticky; IS REMOVED */
             top: 0;
             z-index: 100;
         }
@@ -284,6 +283,51 @@
             text-align: left;
         }
 
+        /* GET INVOLVED CARDS STYLING (UPDATED) */
+        .involved-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .involved-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            padding: 2rem;
+            border-radius: 0.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .involved-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .involved-card h3 {
+            color: #0066cc;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .involved-card p {
+            color: #555555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1; 
+        }
+
+        .involved-card .btn-full {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: auto;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             nav {
@@ -340,7 +384,7 @@
 
     <nav role="navigation">
         <div class="logo">
-            <img src="Gemini_Generated_Image_6codgd6codgd6cod.jpg" alt="Matt Vitale for State Representative HD 96 Logo">
+            <img src="images/Gemini_Generated_Image_6codgd6codgd6cod.jpg" alt="Matt Vitale for State Representative HD 96 Logo">
         </div>
         <ul>
             <li><a href="#priorities">My Priorities</a></li>
@@ -363,7 +407,7 @@
         </section>
         
         <section class="image-banner" aria-label="Photo of Matt Vitale and his family">
-            <img src="472360268_18481020163061033_5501905840714018864_n.jpg" alt="Matt Vitale, his spouse, and their two young children sitting in the grass near a park fountain.">
+            <img src="images/472360268_18481020163061033_5501905840714018864_n.jpg" alt="Matt Vitale, his spouse, and their two young children sitting in the grass near a park fountain.">
         </section>
 
         <section class="priorities-section" id="priorities" aria-labelledby="priorities-heading">
@@ -473,7 +517,7 @@
 
                 <div class="about-content-grid">
                     <div class="about-photo-wrapper">
-                         <img src="314027476_10222997178420314_2561865880457143289_n.jpg" alt="Matt Vitale and his spouse, Becca, standing together in an autumn park.">
+                         <img src="images/314027476_10222997178420314_2561865880457143289_n.jpg" alt="Matt Vitale and his spouse, Becca, standing together in an autumn park.">
                     </div>
                     <div class="about-text">
                         <p style="font-size: 1.1rem; font-weight: 600; line-height: 1.6;">
@@ -499,25 +543,31 @@
         <section class="involved-section" id="involved" aria-labelledby="involved-heading">
             <div class="section-container">
                 <h2 id="involved-heading" class="section-title">Help Us Build Something Better</h2>
+                <p class="section-subtitle">Your energy and resources are how we win this race and bring responsive representation to HD-96.</p>
 
                 <div class="involved-grid">
                     <div class="involved-card">
-                        <h3>Volunteer</h3>
-                        <p>We're looking for people to knock on doors, make phone calls, and share on social media.</p>
-                        <p style="margin-top: 1rem;"><a href="#" class="btn btn-primary" style="display: block; text-align: center; width: 100%;">Sign Up to Volunteer</a></p>
+                        <div>
+                            <h3>Volunteer</h3>
+                            <p>We need dedicated neighbors to knock on doors, make phone calls, and talk to voters. This is the heart of our campaign.</p>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Sign Up to Volunteer</a>
                     </div>
 
                     <div class="involved-card">
-                        <h3>Donate</h3>
-                        <p>Every dollar helps us reach more voters. Your support is critical to competing in this race.</p>
-                        <p style="margin-top: 1rem; font-weight: 600;">Your support makes a difference.</p>
-                        <p style="margin-top: 1rem;"><a href="#" class="btn btn-primary" style="display: block; text-align: center; width: 100%;">Make a Donation</a></p>
+                        <div>
+                            <h3>Donate</h3>
+                            <p>Every dollar helps us reach more voters and compete against the incumbent. Your financial support is critical to victory.</p>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Make a Donation</a>
                     </div>
 
                     <div class="involved-card">
-                        <h3>Share Your Story</h3>
-                        <p>What matters most to you? Share your personal stake in reproductive freedom, education, or workers' rights.</p>
-                        <p style="margin-top: 1rem;"><a href="#" class="btn btn-primary" style="display: block; text-align: center; width: 100%;">Submit Your Story</a></p>
+                        <div>
+                            <h3>Share Your Story</h3>
+                            <p>What are your family's concerns about education, healthcare, or local control? Help us understand what matters most to you.</p>
+                        </div>
+                        <a href="#" class="btn btn-primary btn-full">Submit Your Story</a>
                     </div>
                 </div>
             </div>
