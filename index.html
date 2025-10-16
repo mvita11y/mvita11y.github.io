@@ -230,12 +230,12 @@
                 max-width: 100%;
             }
             
-            .hero h1, .hero .hero-contrast-box, .hero p.tagline, .hero .poll-table, .hero .cta-buttons {
+            .hero h1, .hero .hero-intro, .hero .hero-contrast-box, .hero p.tagline, .hero .poll-table, .hero .cta-buttons {
                 text-align: left;
                 margin-left: 0;
             }
 
-            .hero .hero-contrast-box, .hero .poll-table, .hero .cta-buttons {
+            .hero .hero-intro, .hero .hero-contrast-box, .hero .poll-table, .hero .cta-buttons {
                 max-width: none;
             }
             
@@ -268,6 +268,17 @@
             margin-bottom: 1rem;
             font-weight: 800;
             line-height: 1.2;
+        }
+
+        .hero-intro {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #ffffff;
+            font-weight: 500;
         }
 
         /* CTA Button Container */
@@ -646,7 +657,11 @@
         <section class="hero-container">
             <div class="hero" aria-labelledby="hero-heading">
                 <div class="hero-content">
-                    <h1 id="hero-heading">Move on from Brad.<br><br>Elect a Public School Dad who gets you.</h1>
+                    <div class="cta-buttons">
+                        <a href="#involved" class="btn btn-jumbo">Donate to Matt Today</a>
+                    </div><h1 id="hero-heading">Elect a Public School Dad who gets you.</h1>
+                    
+                    <p class="hero-intro">I'm Matt Vitale—a Democrat running to represent HD-96 because our values deserve a voice in Jefferson City. Brad Christ doesn't listen to this district. I will. When you vote for reproductive freedom, paid sick leave, and strong public schools, you deserve a representative who fights for those priorities—not against them.</p>
                     
                     <div class="hero-contrast-box">
                         <div class="contrast-item">
@@ -667,9 +682,7 @@
                         </div>
                     </div>
                     
-                    <br><div class="cta-buttons">
-                        <a href="#involved" class="btn btn-jumbo">Donate to Matt Today</a>
-                    </div><p class="tagline">I am Matt Vitale and I share your values.</p>
+                    
                     
                     
                     
